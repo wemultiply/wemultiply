@@ -43,8 +43,11 @@ app.use('/api/user', userRoutes);
 app.use('/api/paymongo', paymongoRoutes);
 app.use('/api/trans', transactionRoutes);
 app.use('/api/golden', goldensRoutes);
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
 
 // Start server
-app.listen(process.env.PORT || 3001, () => {
-    console.log("Listening on port 3001");
+app.listen(process.env.PORT || 3001, '0.0.0.0', () => {
+    console.log(`Listening on port ${process.env.PORT || 3001} (IPv4)`);
 });
